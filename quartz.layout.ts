@@ -5,7 +5,23 @@ import * as Component from "./quartz/components"
 export const sharedPageComponents: SharedLayout = {
   head: Component.Head(),
   header: [],
-  afterBody: [],
+  afterBody: [
+    Component.Comments({
+      provider: 'giscus',
+      options: {
+        // from data-repo
+        repo: 'LiaHowie/IMMC-Tech-Blog',
+        // from data-repo-id
+        repoId: 'R_kgDOQc7yHg',
+        // from data-category
+        category: 'Announcements',
+        // from data-category-id
+        categoryId: 'DIC_kwDOQc7yHs4CzB3j',
+        // from data-lang
+        lang: 'en'
+      }
+    }),
+  ],
   footer: Component.Footer({
     links: {
       GitHub: "https://github.com/jackyzha0/quartz",
@@ -35,6 +51,28 @@ export const defaultContentPageLayout: PageLayout = {
         },
         { Component: Component.Darkmode() },
       ],
+    }),
+    Component.Group({
+      title: "Latest Post",
+      children: [
+        Component.RecentNotes({ 
+          title: "",
+          limit: 1, 
+          showTags: false,
+          filter: (fileData) => {
+            if (fileData.frontmatter?.draft === true) return false;
+
+            if (fileData.frontmatter?.excludeRecent === true) return false;
+
+            return fileData.slug?.startsWith("Posts/") ?? false;
+          },
+          sort: (pageA, pageB) => {
+            const dateA = pageA.dates?.published?.getTime() ?? 0
+            const dateB = pageB.dates?.published?.getTime() ?? 0
+            return dateB - dateA
+          }
+        }),
+    ]
     }),
     Component.Explorer({
       title: "Navigate", // title of the explorer component

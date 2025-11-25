@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "index.md",
+                "file": "Posts/Test Post 1.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "index"
+              "title": "Test Post 1"
             }
           }
         ]
@@ -172,8 +172,9 @@
   },
   "active": "47d1cbdafbd6d8f8",
   "lastOpenFiles": [
-    "Posts/Test Post 1.md",
+    "Extras/Templates/Default Frontmatter.md",
     "index.md",
+    "Posts/Test Post 1.md",
     "Extras/Figures",
     "Posts/Untitled.md",
     "Patches/Creative/v4/v4.1.1.md",
