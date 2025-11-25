@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0">
+    <channel>
+      <title>IMMC: Survival Wiki</title>
+      <link>https://docs.survival.immortalmc.net</link>
+      <description>Last 10 notes on IMMC: Survival Wiki</description>
+      <generator>Quartz -- quartz.jzhao.xyz</generator>
+      <item>
+    <title>Server Side Changes</title>
+    <link>https://docs.survival.immortalmc.net/Server-Side-Changes</link>
+    <guid>https://docs.survival.immortalmc.net/Server-Side-Changes</guid>
+    <description>To help with performance, or to add quality of life features, we’ve made a couple of tweaks: e e e .</description>
+    <pubDate>Tue, 04 Nov 2025 20:19:11 GMT</pubDate>
+  </item><item>
+    <title>Live Map</title>
+    <link>https://docs.survival.immortalmc.net/Live-Map</link>
+    <guid>https://docs.survival.immortalmc.net/Live-Map</guid>
+    <description></description>
+    <pubDate>Tue, 04 Nov 2025 20:18:11 GMT</pubDate>
+  </item><item>
+    <title>Installing the Modpack</title>
+    <link>https://docs.survival.immortalmc.net/Modded/Installing-the-Modpack</link>
+    <guid>https://docs.survival.immortalmc.net/Modded/Installing-the-Modpack</guid>
+    <description>This page will walk you through how to install and setup Prism Launcher for use with the modpack.</description>
+    <pubDate>Tue, 04 Nov 2025 20:15:27 GMT</pubDate>
+  </item><item>
+    <title>Home</title>
+    <link>https://docs.survival.immortalmc.net/</link>
+    <guid>https://docs.survival.immortalmc.net/</guid>
+    <description>Welcome! Welcome to the IMMC: Survival wiki! Here you’ll find everything you need to know about the server’s features and/or mod list! We are currently on Vanilla 1.21.10!.</description>
+    <pubDate>Tue, 04 Nov 2025 20:06:06 GMT</pubDate>
+  </item><item>
+    <title>LatexPreamble</title>
+    <link>https://docs.survival.immortalmc.net/Extras/LatexPreamble</link>
+    <guid>https://docs.survival.immortalmc.net/Extras/LatexPreamble</guid>
+    <description>\newcommand\abs[1]{\left\lvert #1 \right\rvert} \newcommand\avg[1]{\left\langle #1 \right\rangle} \newcommand\diff{\text{d}} \newcommand\Diff{\text{D}} \newcommand\degree{^{\circ}} \newcommand\ihat{\hat{\imath}} \newcommand\jhat{\hat{\jmath}} \newcommand\Jhat{\hat{J}} \newcommand\khat{\hat{k}} \newc...</description>
+    <pubDate>Tue, 04 Nov 2025 19:41:23 GMT</pubDate>
+  </item>
+    </channel>
+  </rss>

@@ -1,0 +1,172 @@
+import { PageLayout, SharedLayout } from "./quartz/cfg"
+import * as Component from "./quartz/components"
+
+// components shared across all pages
+export const sharedPageComponents: SharedLayout = {
+  head: Component.Head(),
+  header: [],
+  afterBody: [],
+  footer: Component.Footer({
+    links: {
+      GitHub: "https://github.com/jackyzha0/quartz",
+    },
+  }),
+}
+
+// components for pages that display a single page (e.g. a single note)
+export const defaultContentPageLayout: PageLayout = {
+  beforeBody: [
+    Component.ConditionalRender({
+      component: Component.Breadcrumbs(),
+      condition: (page) => page.fileData.slug !== "index",
+    }),
+    Component.ArticleTitle(),
+    Component.ContentMeta(),
+  ],
+  left: [
+    Component.DesktopOnly(Component.PageTitle()),
+    Component.MobileOnly(Component.PageTitleMobile()),
+    Component.MobileOnly(Component.Spacer()),
+    Component.Flex({
+      components: [
+        {
+          Component: Component.Search(),
+          grow: true,
+        },
+        { Component: Component.Darkmode() },
+      ],
+    }),
+    Component.Explorer({
+      title: "Navigate", // title of the explorer component
+      folderClickBehavior: "collapse", // what happens when you click a folder ("link" to navigate to folder page on click or "collapse" to collapse folder on click)
+      folderDefaultState: "open", // default state of folders ("collapsed" or "open")
+      useSavedState: false, // whether to use local storage to save "state" (which folders are opened) of explorer
+      // omitted but shown later
+      sortFn: (a, b) => {
+        const dateSortedFolders = [
+          "Posts",
+        ]
+
+        const aPath = a.filePath ?? ""
+        const bPath = b.filePath ?? ""
+
+        // Determine whether this comparison occurs inside one of the special folders
+        const inDateSortZone =
+          dateSortedFolders.some(folder =>
+            aPath.startsWith(folder) && bPath.startsWith(folder)
+          )
+
+        if (!inDateSortZone) {
+          // Default Quartz behaviour (folders first, then alphabetical)
+          if (a.isFolder && !b.isFolder) return -1
+          if (!a.isFolder && b.isFolder) return 1
+          return a.name.localeCompare(b.name)
+        }
+
+        // --- Custom date sorting ---
+        if (a.isFolder && !b.isFolder) return -1
+        if (!a.isFolder && b.isFolder) return 1
+        
+        // Then sort by date descending
+        const ad = a.meta?.dates?.published?.getTime() ?? 0
+        const bd = b.meta?.dates?.published?.getTime() ?? 0
+        return bd - ad
+      },
+      filterFn: (node) => {
+        // set containing names of everything you want to filter out
+        const omit = new Set(["extras","disabled"])
+     
+        // can also use node.slug or by anything on node.data
+        // note that node.data is only present for files that exist on disk
+        // (e.g. implicit folder nodes that have no associated index.md)
+        return !omit.has(node.displayName.toLowerCase())
+      },
+      mapFn: (node) => {
+        if (node.isFolder) {
+          node.displayName = "📁 " + node.displayName
+        } else if (node.displayName.toLowerCase().includes("✨")) {
+          node.displayName = node.displayName
+        } else if (node.displayName.toLowerCase().includes("➕")) {
+          node.displayName = node.displayName
+        } else {
+          node.displayName = "📄 " + node.displayName
+        }
+      },
+    }),
+  ],
+  right: [
+    Component.Graph(),
+    Component.DesktopOnly(Component.TableOfContents()),
+    Component.Backlinks(),
+  ],
+}
+
+// components for pages that display lists of pages  (e.g. tags or folders)
+export const defaultListPageLayout: PageLayout = {
+  beforeBody: [Component.Breadcrumbs(), Component.ArticleTitle(), Component.ContentMeta()],
+  left: [
+    Component.PageTitle(),
+    Component.MobileOnly(Component.Spacer()),
+    Component.Flex({
+      components: [
+        {
+          Component: Component.Search(),
+          grow: true,
+        },
+        { Component: Component.Darkmode() },
+      ],
+    }),
+    Component.Group({
+      title: "Latest Post",
+      children: [
+        Component.RecentNotes({ 
+          title: "",
+          limit: 1, 
+          showTags: false,
+          filter: (fileData) => {
+            if (fileData.frontmatter?.draft === true) return false;
+
+            if (fileData.frontmatter?.excludeRecent === true) return false;
+
+            return fileData.slug?.startsWith("Posts/") ?? false;
+          },
+          sort: (pageA, pageB) => {
+            const dateA = pageA.dates?.published?.getTime() ?? 0
+            const dateB = pageB.dates?.published?.getTime() ?? 0
+            return dateB - dateA
+          }
+        }),
+    ]
+    }),
+    Component.Explorer({
+      title: "Navigate", // title of the explorer component
+      folderClickBehavior: "link", // what happens when you click a folder ("link" to navigate to folder page on click or "collapse" to collapse folder on click)
+      folderDefaultState: "collapsed", // default state of folders ("collapsed" or "open")
+      useSavedState: false, // whether to use local storage to save "state" (which folders are opened) of explorer
+      // omitted but shown later
+      filterFn: (node) => {
+        // set containing names of everything you want to filter out
+        const omit = new Set(["extras","disabled"])
+     
+        // can also use node.slug or by anything on node.data
+        // note that node.data is only present for files that exist on disk
+        // (e.g. implicit folder nodes that have no associated index.md)
+        return !omit.has(node.displayName.toLowerCase())
+      },
+      mapFn: (node) => {
+        if (node.isFolder) {
+          node.displayName = "📁 " + node.displayName
+        } else if (node.displayName.toLowerCase().includes("✨")) {
+          node.displayName = node.displayName
+        } else if (node.displayName.toLowerCase().includes("➕")) {
+          node.displayName = node.displayName
+        } else {
+          node.displayName = "📄 " + node.displayName
+        }
+      },
+    }),
+  ],
+  right: [
+    Component.Graph()
+  ]
+}

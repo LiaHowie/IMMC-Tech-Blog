@@ -1,0 +1,30 @@
+@use "./base.scss";
+
+// put your custom CSS here!
+.bordered-wrapper {
+  border: 1px solid var(--lightgray);  // the border
+  border-radius: 10px;                 // rounded corners
+  padding: 1rem;                       // inner spacing
+  margin-top: 1.5rem;                  // spacing from above content
+
+  display: flex;
+  flex-direction: column;
+  gap: 0.01rem; // spacing between the children
+}
+
+.group-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-top: 0;
+  margin-bottom: 0.75rem;
+  color: var(--secondary);
+  border-bottom: 1px solid var(--lightgray);
+  padding-bottom: 0.3rem;
+}
+
+.inline-emoji {
+  height: 1.2em;
+  width: auto;
+  vertical-align: middle;
+  object-fit: contain;
+}

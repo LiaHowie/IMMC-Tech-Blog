@@ -1,0 +1,12 @@
+{
+  "immediateReplace": true,
+  "suggester": true,
+  "historyPriority": true,
+  "historyLimit": 100,
+  "history": [
+    ":smiley:",
+    ":woman_cartwheeling:",
+    ":slightly_smiling_face:",
+    ":woman_shrugging:"
+  ]
+}
