@@ -10,7 +10,7 @@ export const sharedPageComponents: SharedLayout = {
       provider: 'giscus',
       options: {
         // from data-repo
-        repo: 'LiaHowie/IMMC-Tech-Blog',
+        repo: 'LiaHowie/IMMC-Tech-Info',
         // from data-repo-id
         repoId: 'R_kgDOQc7yHg',
         // from data-category
