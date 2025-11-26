@@ -9,8 +9,8 @@ import { CustomEmoji } from "./quartz/plugins/transformers/customEmoji"
  */
 const config: QuartzConfig = {
   configuration: {
-    pageTitle: "IMMC Technical Blog",
-    pageTitleSuffix: " | IMMC Technical Blog",
+    pageTitle: "IMMC Technical Info",
+    pageTitleSuffix: " | IMMC Technical Info",
     enableSPA: true,
     enablePopovers: true,
     analytics: {
