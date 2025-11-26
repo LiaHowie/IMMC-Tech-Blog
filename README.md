@@ -1,1 +1,1 @@
-# IMMC Tech Blog
+# IMMC Tech Info
