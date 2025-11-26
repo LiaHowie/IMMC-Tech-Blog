@@ -1,5 +1,5 @@
 ---
-draft:
+draft: true
 note: A draft page will not be shown in the production site
 ---
 If you've been on the server a while you may remember that one time an SSD overheated and died on us, leading to me restoring worlds from a backup.
