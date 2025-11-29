@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Posts/25-11-29.md",
+                "file": "Hardware.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "25-11-29"
+              "title": "Hardware"
             }
           }
         ]
@@ -173,7 +173,9 @@
   "active": "47d1cbdafbd6d8f8",
   "lastOpenFiles": [
     "Posts/Mysterious Disconnects.md",
+    "Posts/test.md",
     "Posts/25-11-29.md",
+    "Posts/ZFS Storage Pool Troubles.md",
     "Posts/25-11-29 Attachments",
     "index.md",
     "Hardware.md",
@@ -207,7 +209,6 @@
     "Patches/Creative/v4/v4.0.3.md",
     "Patches/Creative/v4/v4.0.2.md",
     "Live Map.md",
-    "Extras/emojis/README.md",
     "Extras/emojis/warden.webp",
     "Extras/emojis/trans_galactic_object.webp",
     "Extras/emojis/tiredlia.webp",
