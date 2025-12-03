@@ -9,7 +9,7 @@ interface Options {
 
 const Group: QuartzComponentConstructor<Options> = (opts: Options) => {
   return (props: QuartzComponentProps) => (
-    <div class={`${opts.visibleOn ?? ""}`}>
+    <div className={`${opts.visibleOn ?? ""}`}>
       <div class="bordered-wrapper">
         {opts.title && <h3 class="group-title">{opts.title}</h3>}
         {opts.children.map((Child, i) => (
