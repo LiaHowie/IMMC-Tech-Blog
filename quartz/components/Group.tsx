@@ -3,17 +3,18 @@ import { QuartzComponentConstructor, QuartzComponentProps } from "./types"
 interface Options {
   class?: string
   title?: string
-  children: any[]
+  children: QuartzComponentConstructor<any>[]
 }
 
 const Group: QuartzComponentConstructor<Options> = (opts: Options) => {
-  return function renderGroup(props: QuartzComponentProps) {
+  return (props: QuartzComponentProps) => {
+    // render children by calling each child with props
+    const renderedChildren = opts.children.map((Child) => Child(props))
+
     return (
-      <div class="bordered-wrapper">
+      <div class={opts.class ?? ""}>
         {opts.title && <h3 class="group-title">{opts.title}</h3>}
-        {opts.children.map((Child, i) => (
-          <div key={i}>{Child(props)}</div>
-        ))}
+        {renderedChildren}
       </div>
     )
   }
