@@ -55,7 +55,7 @@ export const defaultContentPageLayout: PageLayout = {
     Component.DesktopOnly(Component.Group({
       title: "Latest Post",
       children: [
-        Component.DesktopOnly(Component.RecentNotes({ 
+        Component.RecentNotes({ 
           title: "",
           limit: 1, 
           showTags: false,
@@ -71,7 +71,7 @@ export const defaultContentPageLayout: PageLayout = {
             const dateB = pageB.dates?.published?.getTime() ?? 0
             return dateB - dateA
           }
-        })),
+        }),
     ]
     })),
     Component.Explorer({

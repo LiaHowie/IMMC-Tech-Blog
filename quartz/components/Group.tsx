@@ -4,18 +4,10 @@ interface Options {
   class?: string
   title?: string
   children: any[]
-  visibleOn?: string
 }
 
 const Group: QuartzComponentConstructor<Options> = (opts: Options) => {
-  return (props: QuartzComponentProps) => {
-    if (
-      props.displayClass &&
-      !props.displayClass.includes("show")
-    ) {
-      return null
-    }
-
+  return function renderGroup(props: QuartzComponentProps) {
     return (
       <div class="bordered-wrapper">
         {opts.title && <h3 class="group-title">{opts.title}</h3>}
