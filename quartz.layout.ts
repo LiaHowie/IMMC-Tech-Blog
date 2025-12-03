@@ -52,11 +52,11 @@ export const defaultContentPageLayout: PageLayout = {
         { Component: Component.Darkmode() },
       ],
     }),
-    Component.Group({
-      title: "Latest Post",
-      children: [
-        Component.RecentNotes({ 
-          title: "",
+    //Component.Group({
+      //title: "Latest Post",
+      //children: [
+        Component.DesktopOnly(Component.RecentNotes({ 
+          title: "Latest Post",
           limit: 1, 
           showTags: false,
           filter: (fileData) => {
@@ -71,9 +71,9 @@ export const defaultContentPageLayout: PageLayout = {
             const dateB = pageB.dates?.published?.getTime() ?? 0
             return dateB - dateA
           }
-        }),
-    ]
-    }),
+        })),
+    //]
+    //}),
     Component.Explorer({
       title: "Navigate", // title of the explorer component
       folderClickBehavior: "collapse", // what happens when you click a folder ("link" to navigate to folder page on click or "collapse" to collapse folder on click)
