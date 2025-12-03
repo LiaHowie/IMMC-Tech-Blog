@@ -11,8 +11,8 @@ const PageTitle: QuartzComponent = ({ fileData, cfg, displayClass }: QuartzCompo
       <a href={baseDir}>
         <img 
           src="https://drive.liahowie.net/index.php/apps/files_sharing/publicpreview/sr2HBeWopTqJNDT?file=/&fileId=61807&x=2560&y=1440&a=true&etag=da515ff53477a12ddcd01be8efa78b2c" 
-          width="25" 
-          height="25"
+          width="35" 
+          height="35"
           >
         </img>
       </a>
