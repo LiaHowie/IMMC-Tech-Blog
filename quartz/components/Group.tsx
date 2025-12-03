@@ -1,23 +1,21 @@
 import { QuartzComponentConstructor, QuartzComponentProps } from "./types"
 
 interface Options {
-  class?: string
   title?: string
-  children: QuartzComponentConstructor<any>[]
+  children: any[]
 }
 
-const Group: QuartzComponentConstructor<Options> = (opts: Options) => {
-  return (props: QuartzComponentProps) => {
-    // render children by calling each child with props
-    const renderedChildren = opts.children.map((Child) => Child(props))
+const Group: QuartzComponent = ({ cfg, displayClass }: QuartzComponentProps & { opts: Options }) => {
+  const opts = cfg.opts as Options
 
-    return (
-      <div class="bordered-wrapper">
-        {opts.title && <h3 class="group-title">{opts.title}</h3>}
-        {renderedChildren}
-      </div>
-    )
-  }
+  return (
+    <div class="bordered-wrapper">
+      {opts.title && <h3 class="group-title">{opts.title}</h3>}
+      {opts.children.map((Child, i) => (
+        <div key={i}>{Child}</div>
+      ))}
+    </div>
+  )
 }
 
-export default Group
+export default (() => Group) satisfies QuartzComponentConstructor
